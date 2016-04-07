@@ -31,6 +31,12 @@ public class AnagrammiController {
 
     @FXML
     void doCalcolaAnagramma(ActionEvent event) {
+    	String text = txtInput.getText().trim().toLowerCase();
+    	for(int i =0 ; i< text.length() ; i++)
+    	if(Character.isLetter(text.charAt(i))==false){
+    		txtOutput.setText("Insert alphabetic characters!");
+    		return;
+    	}
 
     }
 
