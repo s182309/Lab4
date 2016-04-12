@@ -17,7 +17,7 @@ public class RicercaAnagramma {
 	
 	public List<String> calcolaAnagrammi(String s) {
 		
-		Parola p = new Parola (s.length());
+		Parola p = new Parola (s);
 		
 		int step = 0;
 		
@@ -30,9 +30,12 @@ public class RicercaAnagramma {
 
 	private void trovaAnagrammi(int step , Parola p) {
 		if (step ==stringa.length()) {
+			
 			numeroAnagrammi++;
+			
+			if(result.contains(p.toString())==false)
 			result.add(p.toString());
-			System.out.format("Anagramma numero %d : %s \n" , numeroAnagrammi , p.toString());
+			
 			return;
 		} 
 		
@@ -42,7 +45,7 @@ public class RicercaAnagramma {
 				
 				//se lettera non presente e casella vuota aggiungo
 				if ( p.get(step)==null &&
-						p.contains(String.valueOf(stringa.charAt(i) ) ) ==false) {
+						p.canInsert(String.valueOf(stringa.charAt(i) ) ) == true) {
 					
 					p.set(step, String.valueOf(stringa.charAt(i) ) ) ;
 					trovaAnagrammi(step+1 , p);

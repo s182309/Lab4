@@ -5,17 +5,34 @@ import java.util.List;
 
 public class Parola {
 	
-	List<String> parola;
+	private List<String> parola;
+	private String stringa;
 	
-	public Parola (Integer lunghezza){
+	public Parola (String stringa){
 		
 		parola = new ArrayList <String> ();
+		this.stringa = stringa;
 		
 		
 	}
 	
-	public boolean contains(String s){
-		return parola.contains(s);
+	public boolean canInsert(String s){
+		int qtaStringa = 0;
+		int qtaLista = 0;
+		
+		for(int i = 0; i< stringa.length() ; i++ ){
+			if(s.compareTo(String.valueOf(stringa.charAt(i))) == 0)
+				qtaStringa++;
+		}
+		
+		for(String st : parola){
+			if(st.compareTo(s)==0)
+				qtaLista ++;
+		}
+		if(qtaLista < qtaStringa)
+		return true;
+		else
+			return false;
 	}
 	
 	public void set(Integer index , String s){

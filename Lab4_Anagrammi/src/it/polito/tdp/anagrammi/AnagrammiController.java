@@ -8,6 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 public class AnagrammiController {
 
@@ -21,7 +24,7 @@ public class AnagrammiController {
     private TextField txtInput;
 
     @FXML
-    private TextArea txtOutput;
+    private TextFlow txtOutput;
     
     private AnagrammiModel model;
     
@@ -31,12 +34,37 @@ public class AnagrammiController {
 
     @FXML
     void doCalcolaAnagramma(ActionEvent event) {
+    	
+    	
     	String text = txtInput.getText().trim().toLowerCase();
     	for(int i =0 ; i< text.length() ; i++)
     	if(Character.isLetter(text.charAt(i))==false){
-    		txtOutput.setText("Insert alphabetic characters!");
+    		Text txt = new Text("Insert alphabetic characters!");
+    		txtOutput.getChildren().add(txt);
     		return;
     	}
+    	
+    	else{
+    	
+    		
+    		
+    		String output = "";
+    		for(String s : model.calcolaAnagramma(text)){
+    			output += s + "\n" ; 
+    		
+       			Text temp = new Text(s+"\n");
+    			
+   			if(model.getDictionary().contains(s) ==true)
+   				temp.setFill(Color.BLACK);
+   			else
+   				temp.setFill(Color.RED);
+   			
+   			txtOutput.getChildren().add(temp);
+    		}
+    		
+    	
+    		 
+   	}
 
     }
 
@@ -44,7 +72,7 @@ public class AnagrammiController {
     void doReset(ActionEvent event) {
     	
     	txtInput.clear();
-    	txtOutput.clear();
+    	txtOutput.getChildren().clear();
 
     }
 

@@ -8,8 +8,8 @@ public class AnagrammiModel {
 	Dictionary dictionary;
 
 	public AnagrammiModel() {
-		//dictionary = new Dictionary();
-		//dictionary.load();
+		dictionary = new Dictionary();
+		dictionary.load();
 	}
 
 	public Dictionary getDictionary() {
