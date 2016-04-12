@@ -34,7 +34,7 @@ public class AnagrammiController {
 
     @FXML
     void doCalcolaAnagramma(ActionEvent event) {
-    	
+    	txtOutput.getChildren().clear();
     	
     	String text = txtInput.getText().trim().toLowerCase();
     	for(int i =0 ; i< text.length() ; i++)
@@ -46,11 +46,7 @@ public class AnagrammiController {
     	
     	else{
     	
-    		
-    		
-    		String output = "";
     		for(String s : model.calcolaAnagramma(text)){
-    			output += s + "\n" ; 
     		
        			Text temp = new Text(s+"\n");
     			
@@ -60,14 +56,12 @@ public class AnagrammiController {
    				temp.setFill(Color.RED);
    			
    			txtOutput.getChildren().add(temp);
-    		}
-    		
-    	
-    		 
-   	}
+    		       }
+    		return;
+            }
+  }
 
-    }
-
+  
     @FXML
     void doReset(ActionEvent event) {
     	

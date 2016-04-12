@@ -25,7 +25,8 @@ public class AnagrammiModel {
 
 	public static void main(String[] args) {
 		AnagrammiModel an = new AnagrammiModel();
-		an.calcolaAnagramma("eat");
+		
+		System.out.println(an.calcolaAnagramma("ciao"));
 	}
 
 }

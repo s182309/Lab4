@@ -3,7 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -34,11 +36,18 @@
                   </Button>
                </children>
             </HBox>
-            <TextFlow fx:id="txtOutput" prefHeight="200.0" prefWidth="200.0">
+            <ScrollPane prefHeight="200.0" prefWidth="200.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0">
+                     <children>
+                        <TextFlow fx:id="txtOutput" />
+                     </children>
+                  </AnchorPane>
+              </content>
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
                </VBox.margin>
-            </TextFlow>
+            </ScrollPane>
             <HBox alignment="TOP_RIGHT">
                <children>
                   <Button mnemonicParsing="false" onAction="#doReset" text="Reset">
